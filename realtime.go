@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
-	"sync"
+	"sync/atomic"
 
 	"github.com/coder/websocket"
 	"github.com/coder/websocket/wsjson"
@@ -129,8 +129,7 @@ type RealTimeClient struct {
 	conn       *websocket.Conn
 	httpClient *http.Client
 
-	mtx         sync.RWMutex
-	sessionOpen bool
+	sessionOpen atomic.Bool
 
 	// done is used to clean up resources when the client disconnects.
 	done chan bool
@@ -143,17 +142,11 @@ type RealTimeClient struct {
 }
 
 func (c *RealTimeClient) isSessionOpen() bool {
-	c.mtx.RLock()
-	defer c.mtx.RUnlock()
-
-	return c.sessionOpen
+	return c.sessionOpen.Load()
 }
 
 func (c *RealTimeClient) setSessionOpen(open bool) {
-	c.mtx.RLock()
-	defer c.mtx.RUnlock()
-
-	c.sessionOpen = open
+	c.sessionOpen.Store(open)
 }
 
 type RealTimeError struct {
