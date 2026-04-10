@@ -185,9 +185,6 @@ func TestRealTime_Send(t *testing.T) {
 		conn, teardown := upgradeRequest(w, r)
 		defer teardown()
 
-		wordBoost := r.URL.Query().Get("word_boost")
-		require.Equal(t, `["foo","bar"]`, wordBoost)
-
 		encoding := r.URL.Query().Get("encoding")
 		require.Equal(t, "pcm_mulaw", encoding)
 
@@ -214,7 +211,6 @@ func TestRealTime_Send(t *testing.T) {
 	client := NewRealTimeClientWithOptions(
 		WithRealTimeBaseURL(ts.URL),
 		WithRealTimeTranscriber(&RealTimeTranscriber{}),
-		WithRealTimeWordBoost([]string{"foo", "bar"}),
 		WithRealTimeEncoding(RealTimeEncodingPCMMulaw),
 		WithRealTimeSampleRate(8_000),
 	)

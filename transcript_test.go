@@ -57,7 +57,6 @@ func TestTranscripts_Submit(t *testing.T) {
 		AcousticModel: String("assemblyai_default"),
 		Punctuate:     Bool(true),
 		FormatText:    Bool(true),
-		WordBoost:     []string{},
 		Topics:        []string{},
 		Status:        TranscriptStatusQueued,
 

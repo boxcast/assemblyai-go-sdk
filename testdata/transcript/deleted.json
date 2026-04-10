@@ -22,7 +22,6 @@
   "auto_highlights": false,
   "audio_start_from": null,
   "audio_end_at": null,
-  "word_boost": null,
   "boost_param": null,
   "filter_profanity": null,
   "redact_pii": false,

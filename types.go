@@ -618,9 +618,6 @@ type Transcript struct {
 	// One request when a transcript is completed or failed, and one request when the redacted audio is ready if redact_pii_audio is enabled.
 	WebhookURL *string `json:"webhook_url,omitempty"`
 
-	// The list of custom vocabulary to boost transcription probability for
-	WordBoost []string `json:"word_boost,omitempty"`
-
 	// An array of temporally-sequential word objects, one for each word in the transcript.
 	// See [Speech recognition](https://www.assemblyai.com/docs/models/speech-recognition) for more information.
 	Words []TranscriptWord `json:"words,omitempty"`
@@ -792,9 +789,6 @@ type TranscriptOptionalParams struct {
 	// We sends two different types of webhook requests.
 	// One request when a transcript is completed or failed, and one request when the redacted audio is ready if redact_pii_audio is enabled.
 	WebhookURL *string `json:"webhook_url,omitempty"`
-
-	// The list of custom vocabulary to boost transcription probability for
-	WordBoost []string `json:"word_boost,omitempty"`
 }
 
 type TranscriptParagraph struct {

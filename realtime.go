@@ -138,7 +138,6 @@ type RealTimeClient struct {
 
 	sampleRate int
 	encoding   RealTimeEncoding
-	wordBoost  []string
 }
 
 func (c *RealTimeClient) isSessionOpen() bool {
@@ -208,13 +207,6 @@ func WithRealTimeTranscriber(transcriber *RealTimeTranscriber) RealTimeClientOpt
 func WithRealTimeSampleRate(sampleRate int) RealTimeClientOption {
 	return func(rtc *RealTimeClient) {
 		rtc.sampleRate = sampleRate
-	}
-}
-
-// WithRealTimeWordBoost sets the word boost for the real-time transcription.
-func WithRealTimeWordBoost(wordBoost []string) RealTimeClientOption {
-	return func(rtc *RealTimeClient) {
-		rtc.wordBoost = wordBoost
 	}
 }
 
@@ -454,12 +446,6 @@ func (c *RealTimeClient) queryFromOptions() string {
 	// Encoding
 	if c.encoding != "" {
 		values.Set("encoding", string(c.encoding))
-	}
-
-	// Word boost
-	if len(c.wordBoost) > 0 {
-		b, _ := json.Marshal(c.wordBoost)
-		values.Set("word_boost", string(b))
 	}
 
 	// Disable partial transcripts
