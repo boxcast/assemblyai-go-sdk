@@ -618,6 +618,10 @@ type Transcript struct {
 	// One request when a transcript is completed or failed, and one request when the redacted audio is ready if redact_pii_audio is enabled.
 	WebhookURL *string `json:"webhook_url,omitempty"`
 
+	// Improve accuracy with up to 200 (for Universal-2) or 1000 (for Universal-3 Pro) domain-specific
+	// words or phrases (maximum 6 words per phrase).
+	KeyTermsPrompt []string `json:"keyterms_prompt,omitempty"`
+
 	// An array of temporally-sequential word objects, one for each word in the transcript.
 	// See [Speech recognition](https://www.assemblyai.com/docs/models/speech-recognition) for more information.
 	Words []TranscriptWord `json:"words,omitempty"`
@@ -789,6 +793,10 @@ type TranscriptOptionalParams struct {
 	// We sends two different types of webhook requests.
 	// One request when a transcript is completed or failed, and one request when the redacted audio is ready if redact_pii_audio is enabled.
 	WebhookURL *string `json:"webhook_url,omitempty"`
+
+	// Improve accuracy with up to 200 (for Universal-2) or 1000 (for Universal-3 Pro) domain-specific
+	// words or phrases (maximum 6 words per phrase).
+	KeyTermsPrompt []string `json:"keyterms_prompt,omitempty"`
 }
 
 type TranscriptParagraph struct {
