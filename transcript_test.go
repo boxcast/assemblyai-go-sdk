@@ -50,15 +50,16 @@ func TestTranscripts_Submit(t *testing.T) {
 	require.NoError(t, err)
 
 	want := Transcript{
-		ID:            String(fakeTranscriptID),
-		AudioURL:      String(fakeAudioURL),
-		LanguageCode:  "en_us",
-		LanguageModel: String("assemblyai_default"),
-		AcousticModel: String("assemblyai_default"),
-		Punctuate:     Bool(true),
-		FormatText:    Bool(true),
-		Topics:        []string{},
-		Status:        TranscriptStatusQueued,
+		ID:             String(fakeTranscriptID),
+		AudioURL:       String(fakeAudioURL),
+		LanguageCode:   "en_us",
+		LanguageModel:  String("assemblyai_default"),
+		AcousticModel:  String("assemblyai_default"),
+		Punctuate:      Bool(true),
+		FormatText:     Bool(true),
+		Topics:         []string{},
+		KeyTermsPrompt: []string{},
+		Status:         TranscriptStatusQueued,
 
 		// Disabled models
 		AutoChapters:      Bool(false),
