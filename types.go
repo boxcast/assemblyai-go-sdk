@@ -764,12 +764,8 @@ type TranscriptOptionalParams struct {
 	// Tells the speaker label model how many speakers it should attempt to identify, up to 10. See [Speaker diarization](https://www.assemblyai.com/docs/models/speaker-diarization) for more details.
 	SpeakersExpected *int64 `json:"speakers_expected,omitempty"`
 
-	// Deprecated: use SpeechModels instead. See
-	// https://www.assemblyai.com/docs/pre-recorded-audio/guides/common_errors_and_solutions#deprecated-speech_model-singular-parameter-on-async-v2-transcript.
-	SpeechModel SpeechModel `json:"speech_model,omitempty"`
-
 	// The speech model(s) to use for the transcription, in priority order. Replaces the
-	// deprecated SpeechModel field. See
+	// removed singular speech_model param, which AssemblyAI deprecated. See
 	// https://www.assemblyai.com/docs/pre-recorded-audio/select-the-speech-model.
 	SpeechModels []SpeechModel `json:"speech_models,omitempty"`
 

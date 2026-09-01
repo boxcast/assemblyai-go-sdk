@@ -21,16 +21,6 @@ const (
 )
 
 const (
-	// Deprecated: replaced by SpeechModelUniversal35Pro. The best model optimized for accuracy.
-	SpeechModelBest SpeechModel = "best"
-
-	// Deprecated: replaced by SpeechModelUniversal2. A lightweight, lower cost model for a wide
-	// range of languages.
-	SpeechModelNano SpeechModel = "nano"
-
-	// Deprecated. Conformer-2 is a heavy-duty model optimized for accuracy.
-	SpeechModelConformer2 SpeechModel = "conformer-2"
-
 	// Universal-3.5 Pro: AssemblyAI's flagship accuracy-optimized model, covering a subset of
 	// languages. See https://www.assemblyai.com/blog/universal-3-5-pro-async and
 	// https://www.assemblyai.com/docs/concepts/supported-languages for supported languages.
